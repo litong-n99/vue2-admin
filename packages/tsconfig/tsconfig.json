@@ -1,0 +1,46 @@
+{
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env"
+    ],
+    "paths": {
+      "@main/*": [
+        "../../apps/main/src/*"
+      ],
+      "@chart/*": [
+        "../../apps/chart/src/*"
+      ],
+      "@common-type/*": [
+        "../../packages/common-type/src/*"
+      ],
+      "@model/*": [
+        "../../packages/model/src/*"
+      ],
+      "mfe_chart/*": [
+        "../../apps/mfe_chart/src/exposes/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  }
+}

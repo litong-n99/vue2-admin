@@ -1,0 +1,47 @@
+@import './variables.scss';
+
+.text-truncate{
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.pull-left{
+  float: left;
+}
+
+.pull-right{
+  float: right;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.clearfix{
+  overflow: auto;
+}
+
+.strong {
+  font-weight: bold;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.primary-icon {
+  color:#4993FE;
+}
+
+.danger-icon {
+  color:#EE7460;
+}
+
+.deactive-icon{
+  color: #333333;
+}

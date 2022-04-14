@@ -1,0 +1,31 @@
+{
+  "name": "vue2-admin",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build && pnpm run post-build",
+    "test:unit": "turbo run test --parallel",
+    "serve": "turbo run serve --parallel",
+    "lint": "turbo run lint",
+    "post-build": "pnpm run genDist && pnpm run delUnusedCache",
+    "genDist": "node script/genDist.js",
+    "delNm": "node script/delNM.js",
+    "delUnusedCache": "node script/delUnUsedCache.js",
+    "lintfix": "turbo run lintfix",
+    "dist-serve": "http-server ./dist -p 8080 -c-1 --cors"
+  },
+  "devDependencies": {
+    "fs-extra": "^10.0.1",
+    "http-server": "^14.1.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@6.32.0"
+}

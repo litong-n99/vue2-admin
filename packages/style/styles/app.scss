@@ -1,0 +1,23 @@
+@import './common.scss';
+@import './reset.scss';
+@import './variables.scss';
+@import './vxetable.scss';
+
+
+html {
+  font-size: 14px;
+  line-height: 1.125;
+  overflow: hidden;
+  font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+}
+
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+  background-color: $color-app-bg;
+  color: $color-text-primary;
+}
