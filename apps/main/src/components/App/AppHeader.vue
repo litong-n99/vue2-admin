@@ -1,5 +1,5 @@
 <template>
-  <header :class="$style.wrapper">
+  <div :class="$style.wrapper">
     <h1 :class="$style.title">Vue2 Admin</h1>
     <div :class="$style['tools-wrapper']">
       <vxe-select :class="$style['tools-item-select']" v-model="theme">
@@ -18,7 +18,7 @@
         <vxe-option value="XLarge" label="XLarge"></vxe-option>
       </vxe-select>
     </div>
-  </header>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
@@ -35,21 +35,20 @@ export default class AppHeader extends Vue {
 }
 </script>
 <style lang="scss" module>
-$wrapper-height: 56px;
 .wrapper {
-  height: $wrapper-height;
+  height: 100%;
   background-color: $color-header-bg;
   color: #fff;
 }
 .title {
   display: inline-block;
-  line-height: $wrapper-height;
+  line-height: $header-height;
   margin: 0;
   font-size: 20px;
   padding-left: 24px;
 }
 .tools-wrapper {
-  height: $wrapper-height;
+  height: $header-height;
   float: right;
   padding-top: 12px;
   padding-right: 24px;
