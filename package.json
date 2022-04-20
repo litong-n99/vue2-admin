@@ -14,7 +14,7 @@
     "test:unit": "turbo run test --parallel",
     "serve": "turbo run serve --parallel",
     "lint": "turbo run lint",
-    "post-build": "pnpm run genDist",
+    "post-build": "pnpm run genDist && pnpm run delUnusedCache",
     "genDist": "node script/genDist.js",
     "delNm": "node script/delNM.js",
     "delUnusedCache": "node script/delUnUsedCache.js",
