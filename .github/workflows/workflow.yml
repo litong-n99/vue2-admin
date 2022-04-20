@@ -23,7 +23,7 @@ jobs:
           path: |
             ~/.pnpm-store
             **/node_modules/.cache
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}-${ github.sha }}
           restore-keys: |
               ${{ runner.os }}-
 
