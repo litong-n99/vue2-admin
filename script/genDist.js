@@ -2,8 +2,8 @@ const path = require('path');
 const fs = require('fs-extra')
 
 const distPath = path.join(__dirname, '../dist');
-const mainAppDistPath = path.join(__dirname, '../apps/bms/dist');
-const subAppDistPaths = [path.join(__dirname, '../apps/bms-report/dist'),path.join(__dirname, '../packages/bms-core/dist'),path.join(__dirname, '../packages/bms-component/dist')];
+const mainAppDistPath = path.join(__dirname, '../apps/main/dist');
+const subAppDistPaths = [path.join(__dirname, '../apps/chart/dist'),path.join(__dirname, '../packages/model/dist')];
 
 
 // 1. 删除当前dist

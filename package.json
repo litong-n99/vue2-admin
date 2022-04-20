@@ -1,5 +1,6 @@
 {
   "name": "vue2-admin",
+  "homepage": "https://litong-n99.github.io/vue2-admin",
   "version": "0.0.1",
   "private": true,
   "workspaces": [
@@ -7,19 +8,22 @@
     "packages/*"
   ],
   "scripts": {
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d build",
     "build": "turbo run build && pnpm run post-build",
     "test:unit": "turbo run test --parallel",
     "serve": "turbo run serve --parallel",
     "lint": "turbo run lint",
-    "post-build": "pnpm run genDist && pnpm run delUnusedCache",
+    "post-build": "pnpm run genDist",
     "genDist": "node script/genDist.js",
     "delNm": "node script/delNM.js",
     "delUnusedCache": "node script/delUnUsedCache.js",
     "lintfix": "turbo run lintfix",
-    "dist-serve": "http-server ./dist -p 8080 -c-1 --cors"
+    "dist-serve": "http-server ./dist -p 9999 -c-1 --cors"
   },
   "devDependencies": {
     "fs-extra": "^10.0.1",
+    "gh-pages": "^3.2.3",
     "http-server": "^14.1.0",
     "turbo": "latest"
   },

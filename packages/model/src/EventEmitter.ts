@@ -44,7 +44,9 @@ export default class EventEmitter implements EventEmitterI {
   public off(event: string, listener: ListenerFn): void {
     const listenerList = this.handlers[event];
     if (listenerList) {
-      this.handlers[event] = listenerList.filter(item => item.fn !== listener);
+      this.handlers[event] = listenerList.filter(
+        (item) => item.fn !== listener
+      );
     }
   }
   public offAll(event: string): void {
@@ -61,7 +63,7 @@ export default class EventEmitter implements EventEmitterI {
       return;
     }
     const onceEE: EE[] = [];
-    listenerList.forEach(item => {
+    listenerList.forEach((item) => {
       if (item.fn) {
         item.fn(...args);
       }
@@ -69,8 +71,8 @@ export default class EventEmitter implements EventEmitterI {
         onceEE.push(item);
       }
     });
-    this.handlers[event] = listenerList.filter(item => {
-      return !onceEE.find(onceItem => item === onceItem);
+    this.handlers[event] = listenerList.filter((item) => {
+      return !onceEE.find((onceItem) => item === onceItem);
     });
   }
 }
