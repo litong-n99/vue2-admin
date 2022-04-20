@@ -36,6 +36,7 @@ module.exports = defineConfig({
           filename: "remoteEntry.js",
           exposes: {
             "./BarChart.vue": "./src/exposes/BarChart.vue",
+            "./BarChartDetail.vue": "./src/exposes/BarChartDetail.vue",
           },
           shared: genFederationShared(pkg.dependencies),
         };

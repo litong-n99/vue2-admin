@@ -1,4 +1,7 @@
 {
   "name": "common-type",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "vue-router": "^3.5.1"
+  }
 }

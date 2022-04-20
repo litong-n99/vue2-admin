@@ -7,25 +7,46 @@
       <AppMenu />
     </aside>
     <article :class="$style['content-wrapper']">
+      <AppDashboardTabs :class="$style['content-tabs']" />
       <div :class="$style.content">
-        <router-view />
+        <AppDbKeepAlive :include="dashboardModel.currentTagRouteNames">
+          <router-view :key="routeViewKey" />
+        </AppDbKeepAlive>
       </div>
     </article>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import AppHeader from "../components/App/AppHeader.vue";
+import AppDashboardTabs from "../components/App/AppDashboardTabs.vue";
+import AppDbKeepAlive from "../components/App/AppDbKeepAlive.vue";
 import AppMenu from "../components/App/AppMenu.vue";
+
+import model from "model";
 
 @Component({
   name: "HomeView",
   components: {
     AppHeader,
     AppMenu,
+    AppDashboardTabs,
+    AppDbKeepAlive,
   },
 })
-export default class Header extends Vue {}
+export default class Header extends Vue {
+  public dashboardModel = model.dashboard;
+
+  /**
+   * @description 当前路由的唯一key
+   */
+  public routeViewKey: number | null = null;
+
+  @Watch("$route", { deep: true })
+  public handleRouteChange() {
+    this.routeViewKey = this.dashboardModel.currentTabKey;
+  }
+}
 </script>
 <style lang="scss" module>
 .wrapper {
@@ -47,6 +68,11 @@ $sider-width: 260px;
   top: $header-height;
   left: 0;
   bottom: 0;
+  border-right: 1px solid $color-border;
+}
+.content-tabs {
+  // flex: 0 0 auto;
+  border-bottom: 1px solid $color-border;
 }
 .content-wrapper {
   padding-left: $sider-width;

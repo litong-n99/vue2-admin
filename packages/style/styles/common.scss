@@ -45,3 +45,8 @@
 .deactive-icon{
   color: #333333;
 }
+
+// 标签过度效果
+.taglist-moving-animation-move {
+  transition: transform .3s;
+}
