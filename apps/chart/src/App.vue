@@ -1,7 +1,5 @@
 <template>
-  <div :class="$style.wrapper">
-    <BarChart />
-  </div>
+  <div :class="$style.wrapper">hi: <BarChart /></div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
