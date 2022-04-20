@@ -54,7 +54,6 @@ router.beforeEach((to, from, next) => {
 });
 
 router.onError((error) => {
-  console.error(error);
   const pattern = /Loading chunk ([\S])+ failed/g;
   const isChunkLoadFailed = error.message.match(pattern);
   if (isChunkLoadFailed) {

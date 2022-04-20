@@ -9,10 +9,6 @@ import { Component, Vue } from "vue-property-decorator";
   name: "WelcomeView",
   components: {},
 })
-export default class WelcomeView extends Vue {
-  private mounted() {
-    console.log("WelcomeView", "mounted");
-  }
-}
+export default class WelcomeView extends Vue {}
 </script>
 <style lang="scss" module></style>
