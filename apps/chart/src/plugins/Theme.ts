@@ -1,6 +1,7 @@
 import { CHANGE_APP_THEME } from "build-config/constants/Bus";
 import models from "model";
 import genChangeColor from "build-config/theme/Theme";
+import pkg from "../../package.json";
 import ports from "build-config/Port.json";
 
 /**
@@ -10,7 +11,7 @@ import ports from "build-config/Port.json";
 export const changeColor = genChangeColor(function (cssUrl: string) {
   return process.env.NODE_ENV === "development"
     ? `http://127.0.0.1:${ports.apps.chart}/${cssUrl}`
-    : `./subapp/bms-report/${cssUrl}`;
+    : `./subapp/${pkg.name}/${cssUrl}`;
 });
 
 // 是否有钩子检查
