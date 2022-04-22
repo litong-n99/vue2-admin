@@ -2,6 +2,8 @@ const { defineConfig } = require("@vue/cli-service");
 const px2rem = require("postcss-plugin-px2rem");
 const pkg = require("./package.json");
 const { genFederationShared } = require("build-config/Federation");
+const createThemeColorReplacerPlugin = require("build-config/theme/theme-plugin.config.js");
+const ports = require("build-config/Port.json").apps;
 const path = require("path");
 
 const ModuleFederationPlugin =
@@ -19,10 +21,9 @@ const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = defineConfig({
   publicPath: "./",
-  transpileDependencies: true,
   devServer: {
     hot: true,
-    port: 8000,
+    port: ports.main,
   },
   chainWebpack: (config) => {
     config.resolve.alias
@@ -37,13 +38,16 @@ module.exports = defineConfig({
           filename: "remoteEntry.js",
           remotes: {
             mfe_chart: `mfe_chart@${
-              isProduction ? "./subapp/chart" : "http://127.0.0.1:8001"
+              isProduction
+                ? "./subapp/chart"
+                : `http://127.0.0.1:${ports.chart}`
             }/remoteEntry.js`,
           },
           shared: genFederationShared(pkg.dependencies),
         };
         return options;
       });
+    config.plugin("theme-color-replacer").use(createThemeColorReplacerPlugin());
   },
   css: {
     loaderOptions: {

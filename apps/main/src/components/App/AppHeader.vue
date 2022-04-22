@@ -2,10 +2,16 @@
   <div :class="$style.wrapper">
     <h1 :class="$style.title">Vue2 Admin</h1>
     <div :class="$style['tools-wrapper']">
-      <vxe-select :class="$style['tools-item-select']" v-model="theme">
+      <vxe-select
+        :class="$style['tools-item-select']"
+        v-model="appModel.theme"
+        @change="appModel.setAppTheme()"
+      >
         <vxe-option value="Blue" label="Blue"></vxe-option>
         <vxe-option value="Green" label="Green"></vxe-option>
         <vxe-option value="Orange" label="Orange"></vxe-option>
+        <vxe-option value="Gray" label="Gray"></vxe-option>
+        <vxe-option value="BlueGray" label="BlueGray"></vxe-option>
       </vxe-select>
       <vxe-select
         @change="appModel.setAppSize()"
@@ -29,8 +35,6 @@ import model from "model";
   components: {},
 })
 export default class AppHeader extends Vue {
-  public theme = "Blue";
-
   public appModel = model.app;
 }
 </script>

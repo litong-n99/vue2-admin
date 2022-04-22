@@ -46,6 +46,13 @@ export default class Header extends Vue {
   public handleRouteChange() {
     this.routeViewKey = this.dashboardModel.currentTabKey;
   }
+
+  /**
+   * @description 初始化
+   */
+  public created() {
+    this.handleRouteChange();
+  }
 }
 </script>
 <style lang="scss" module>

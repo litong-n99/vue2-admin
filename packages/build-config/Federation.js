@@ -2,6 +2,7 @@ const SINGLETON_LIB = ["vue", "model", "vue-router", "vxe-table"];
 
 function genFederationShared(depInfo) {
   return Object.entries(depInfo).reduce((total, [key, val]) => {
+    if (key === 'build-config') return total;
     if (SINGLETON_LIB.includes(key)) {
       total[key] = { singleton: true };
     } else {

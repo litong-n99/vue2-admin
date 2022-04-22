@@ -17,6 +17,7 @@
     "regenerator-runtime": "^0.13.9",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
+    "build-config": "workspace:*",
     "xe-utils": "^3.5.4"
   },
   "devDependencies": {

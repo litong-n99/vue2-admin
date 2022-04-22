@@ -177,9 +177,19 @@ export default class Dashboard extends BaseModel {
    * @description 更改当前tab的信息
    * @param changeInfo 要更改的信息
    */
-  public async changeCurrentTabInfo(changeInfo: DashboardTabExchangeInfo) {
+  public async changeCurrentTabInfo(
+    changeInfo: DashboardTabExchangeInfo,
+    router: Router
+  ) {
     if (this.currentTabKey) {
       await this.changeTabInfoByKey(this.currentTabKey, changeInfo);
+      const currentTab = this.getCurrentTab();
+      router
+        .replace({
+          params: currentTab?.params,
+          query: currentTab?.query,
+        })
+        .catch((err) => err);
     }
   }
 

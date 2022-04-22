@@ -17,7 +17,10 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { initExpose } from "../plugins";
 import model from "model";
+
+initExpose();
 
 @Component({
   name: "BarChart",

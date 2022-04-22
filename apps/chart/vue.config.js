@@ -2,6 +2,8 @@ const { defineConfig } = require("@vue/cli-service");
 const px2rem = require("postcss-plugin-px2rem");
 const pkg = require("./package.json");
 const { genFederationShared } = require("build-config/Federation");
+const createThemeColorReplacerPlugin = require("build-config/theme/theme-plugin.config.js");
+const port = require("build-config/Port.json").apps.chart;
 const path = require("path");
 
 const ModuleFederationPlugin =
@@ -10,11 +12,10 @@ const ModuleFederationPlugin =
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = defineConfig({
-  publicPath: isProduction ? "./subapp/chart/" : "http://127.0.0.1:8001/",
-  transpileDependencies: true,
+  publicPath: isProduction ? "./subapp/chart/" : `http://127.0.0.1:${port}/`,
   devServer: {
     hot: true,
-    port: 8001,
+    port,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -42,7 +43,9 @@ module.exports = defineConfig({
         };
         return options;
       });
+    config.plugin("theme-color-replacer").use(createThemeColorReplacerPlugin());
   },
+
   css: {
     loaderOptions: {
       scss: {

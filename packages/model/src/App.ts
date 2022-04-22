@@ -1,5 +1,6 @@
 import BaseModel, { saveProp } from "./BaseModel";
-import { AppSize } from "@common-type/App";
+import { CHANGE_APP_THEME } from "build-config/constants/Bus";
+import { AppSize, AppTheme } from "@common-type/App";
 
 /**
  * @description application info
@@ -11,6 +12,13 @@ export default class App extends BaseModel {
 
   @saveProp()
   public size: AppSize = "Medium";
+
+  @saveProp()
+  public theme: AppTheme = "Blue";
+
+  public setAppTheme() {
+    this.emit(CHANGE_APP_THEME, this.theme);
+  }
 
   public setAppSize() {
     let fz = 14;

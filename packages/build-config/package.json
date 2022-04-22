@@ -1,4 +1,11 @@
 {
   "name": "build-config",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "common-type": "workspace:*"
+  },
+  "devDependencies": {
+    "tsconfig": "workspace:*",
+    "webpack-theme-color-replacer": "github:litong-n99/webpack-theme-color-replacer"
+  }
 }
