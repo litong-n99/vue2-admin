@@ -78,16 +78,21 @@ $sider-width: 260px;
   border-right: 1px solid $color-border;
 }
 .content-tabs {
-  // flex: 0 0 auto;
   border-bottom: 1px solid $color-border;
+  flex: 0 0 auto;
 }
 .content-wrapper {
   padding-left: $sider-width;
   padding-top: $header-height;
   background-color: bisque;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .content {
-  padding: 20px;
+  height: 100%;
+  flex: auto;
+  overflow-y: auto;
+  background: white;
 }
 </style>

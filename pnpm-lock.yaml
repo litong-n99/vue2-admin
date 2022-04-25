@@ -24,6 +24,7 @@ importers:
       build-config: workspace:*
       common-type: workspace:*
       core-js: ^3.8.3
+      echarts: ^5.3.2
       model: workspace:*
       postcss-plugin-px2rem: ^0.8.1
       regenerator-runtime: ^0.13.9
@@ -46,6 +47,7 @@ importers:
       build-config: link:../../packages/build-config
       common-type: link:../../packages/common-type
       core-js: 3.21.1
+      echarts: 5.3.2
       model: link:../../packages/model
       regenerator-runtime: 0.13.9
       style: link:../../packages/style
@@ -3532,6 +3534,13 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: true
 
+  /echarts/5.3.2:
+    resolution: {integrity: sha512-LWCt7ohOKdJqyiBJ0OGBmE9szLdfA9sGcsMEi+GGoc6+Xo75C+BkcT/6NNGRHAWtnQl2fNow05AQjznpap28TQ==}
+    dependencies:
+      tslib: 2.3.0
+      zrender: 5.3.1
+    dev: false
+
   /ee-first/1.1.1:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
@@ -6901,7 +6910,7 @@ packages:
       serialize-javascript: 6.0.0
       source-map: 0.6.1
       terser: 5.12.1
-      webpack: 5.72.0_webpack-cli@4.9.2
+      webpack: 5.72.0
     dev: true
 
   /terser/4.8.0:
@@ -7025,6 +7034,10 @@ packages:
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
+
+  /tslib/2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
+    dev: false
 
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
@@ -7811,6 +7824,12 @@ packages:
       normalize-path: 1.0.0
       strip-indent: 2.0.0
     dev: true
+
+  /zrender/5.3.1:
+    resolution: {integrity: sha512-7olqIjy0gWfznKr6vgfnGBk7y4UtdMvdwFmK92vVQsQeDPyzkHW1OlrLEKg6GHz1W5ePf0FeN1q2vkl/HFqhXw==}
+    dependencies:
+      tslib: 2.3.0
+    dev: false
 
   github.com/litong-n99/webpack-theme-color-replacer/290b6ff213eae2167ef1fd9315a2b535ab2b6cf0:
     resolution: {tarball: https://codeload.github.com/litong-n99/webpack-theme-color-replacer/tar.gz/290b6ff213eae2167ef1fd9315a2b535ab2b6cf0}

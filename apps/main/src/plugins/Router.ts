@@ -16,7 +16,7 @@ export const menus: Array<RouteConfig> = [
 
 export const details: Array<RouteConfig> = [
   {
-    path: "bar_chart_detail/:id",
+    path: "bar_chart_detail/:day/:name",
     name: "BarChartDetail",
     component: () => import("mfe_chart/BarChartDetail.vue"),
     meta: {

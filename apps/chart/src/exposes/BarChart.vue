@@ -1,23 +1,13 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="item in details" :key="item.id">
-        <router-link
-          :to="{
-            name: 'BarChartDetail',
-            query: { __tag: `Bar Detail: ${item.title}` },
-            params: { id: item.id },
-          }"
-        >
-          Bar Detail: {{ item.title }}
-        </router-link>
-      </li>
-    </ul>
+  <div :class="$style.wrapper">
+    <div :class="$style['chart-ele']" ref="chart-ele"></div>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Ref, Vue } from "vue-property-decorator";
+import * as echarts from "echarts";
 import { initExpose } from "../plugins";
+import barChartFakeData from "../fake_data/BarChart";
 import model from "model";
 
 initExpose();
@@ -29,11 +19,40 @@ initExpose();
 export default class BarChart extends Vue {
   public appModel = model.app;
 
-  public details = [
-    { title: "Jan Data", id: "1" },
-    { title: "Feb Data", id: "2" },
-    { title: "Mar Data", id: "3" },
-  ];
+  @Ref("chart-ele")
+  public chartEle!: HTMLDivElement;
+
+  public chart?: echarts.ECharts;
+
+  public mounted() {
+    this.initChart();
+  }
+
+  public initChart() {
+    this.chart = echarts.init(this.chartEle);
+    this.chart.setOption(barChartFakeData);
+    this.chart.on("click", "series", (event) => {
+      event.name;
+      event.seriesName;
+      this.$router.push({
+        name: "BarChartDetail",
+        query: { __tag: `Bar Detail: ${event.name} - ${event.seriesName}` },
+        params: { day: event.name, name: event.seriesName as string },
+      });
+    });
+    new ResizeObserver(() => {
+      this.chart?.resize();
+    }).observe(this.chartEle);
+  }
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" module>
+.wrapper {
+  padding: 40px;
+  height: 100%;
+}
+.chart-ele {
+  width: 100%;
+  height: 100%;
+}
+</style>
