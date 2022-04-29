@@ -16,6 +16,14 @@ export default class App extends BaseModel {
   @saveProp()
   public theme: AppTheme = "Blue";
 
+  public authCodes: {
+    [key: string]: { isUsable: boolean; isVisible: boolean };
+  } = {
+    codeA: { isUsable: false, isVisible: true },
+    codeB: { isUsable: false, isVisible: false },
+    codeC: { isUsable: true, isVisible: true },
+  };
+
   public setAppTheme() {
     this.emit(CHANGE_APP_THEME, this.theme);
   }

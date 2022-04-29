@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import model from "model";
-import WelcomeView from "../views/home/WelcomeView.vue";
+import Welcome from "../views/home/Welcome.vue";
 
 Vue.use(VueRouter);
 
@@ -11,6 +11,11 @@ export const menus: Array<RouteConfig> = [
     path: "bar_chart",
     name: "BarChart",
     component: () => import("mfe_chart/BarChart.vue"),
+  },
+  {
+    path: "disable_visible",
+    name: "DisableAndVisible",
+    component: () => import("../views/home/DisableAndVisible.vue"),
   },
 ];
 
@@ -35,7 +40,7 @@ const routes: Array<RouteConfig> = [
       {
         path: "welcome",
         name: "Welcome",
-        component: WelcomeView,
+        component: Welcome,
       },
       ...menus,
       ...details,

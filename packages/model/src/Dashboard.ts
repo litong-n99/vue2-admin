@@ -55,6 +55,10 @@ export default class Dashboard extends BaseModel {
     });
   }
 
+  public emitUserInput(event?: Event) {
+    this.emit("user-input", event);
+  }
+
   /**
    * @description 打开新tab
    */

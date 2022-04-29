@@ -12,10 +12,10 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 @Component({
-  name: "WelcomeView",
+  name: "Welcome",
   components: {},
 })
-export default class WelcomeView extends Vue {}
+export default class Welcome extends Vue {}
 </script>
 <style lang="scss" module>
 .wrapper {
