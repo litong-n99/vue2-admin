@@ -7,6 +7,6 @@
   "devDependencies": {
     "tsconfig": "workspace:*",
     "style": "workspace:*",
-    "webpack-theme-color-replacer": "github:litong-n99/webpack-theme-color-replacer"
+    "webpack-theme-color-replacer": "^1.4.1"
   }
 }
