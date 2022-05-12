@@ -9,7 +9,7 @@
     <article :class="$style['content-wrapper']">
       <AppDashboardTabs :class="$style['content-tabs']" />
       <div :class="$style.content">
-        <AppDbKeepAlive :include="dashboardModel.currentTagRouteNames">
+        <AppDbKeepAlive>
           <router-view :key="routeViewKey" />
         </AppDbKeepAlive>
       </div>

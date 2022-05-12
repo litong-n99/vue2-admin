@@ -90,22 +90,20 @@ function pruneCache(keepAliveInstance: any, filter: (name: string) => unknown) {
   }
 }
 
-const patternTypes = [String, RegExp, Array];
-
 // 将props和model透传
 @Component({
   name: "AppDbKeepAlive",
 })
 export default class AppDbKeepAlive extends Vue {
-  @Prop(patternTypes)
-  private include!: string | RegExp | string[];
-  @Prop(patternTypes)
-  private exclude!: string | RegExp | string[];
   @Prop([String, Number])
   private max!: string | number;
 
   private cache!: VNodeCache;
   private keys!: string[];
+
+  private get include() {
+    return model.dashboard.currentTagRouteNames;
+  }
 
   private get dashBoardKeys() {
     return model.dashboard.tabs.map((item) => {
@@ -127,9 +125,6 @@ export default class AppDbKeepAlive extends Vue {
   private mounted() {
     this.$watch("include", (val) => {
       pruneCache(this, (name: string) => matches(val, name));
-    });
-    this.$watch("exclude", (val) => {
-      pruneCache(this, (name: string) => !matches(val, name));
     });
     this.$watch(
       "dashBoardKeys",
@@ -155,12 +150,11 @@ export default class AppDbKeepAlive extends Vue {
     if (vnode && componentOptions) {
       // check pattern
       const name: string = getComponentName(componentOptions);
-      const { include, exclude } = this;
+      const { include } = this;
       if (
         // not included
-        (include && (!name || !matches(include, name))) ||
-        // excluded
-        (exclude && name && matches(exclude, name))
+        include &&
+        (!name || !matches(include, name))
       ) {
         return vnode;
       }
