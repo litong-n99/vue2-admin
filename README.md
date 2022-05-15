@@ -1,11 +1,3 @@
-# bms-ts
+### Homepage
 
-## Project setup
-```
-pnpm install
-```
-
-### Compiles and hot-reloads for development
-```
-pnpm run serve
-```
+https://litong-n99.github.io/vue2-admin
